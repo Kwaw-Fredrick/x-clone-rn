@@ -121,13 +121,13 @@ export const likePost = asyncHandler(async (req, res) => {
 
   if (isLike) {
     //unliked
-    await Post.findByAndUpdate(postId, {
+    await Post.findByIdAndUpdate(postId, {
       $pull: { likes: user._id },
     });
 
     //liked
   } else {
-    await Post.findByIdAndUpdate(user._id, {
+    await Post.findByIdAndUpdate(postId, {
       $push: { likes: user._id },
     });
   }
