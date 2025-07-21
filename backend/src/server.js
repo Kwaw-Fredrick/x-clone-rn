@@ -5,6 +5,7 @@ import cors from "cors";
 import {clerkMiddleware} from "@clerk/express";
 import userRouthes from "./routes/user.route.js"
 import postRouthes from "./routes/post.route.js"
+import commentRouthes from "./routes/comment.route.js"
 
 
 
@@ -18,6 +19,7 @@ app.get("/", (req, res) => res.send("Hello from the server"));
 
 app.use("/api/users", userRouthes)
 app.use("/api/posts", postRouthes)
+app.use("/api/comment", commentRouthes)
 
 // error handling middleware
 app.use((err, req, res, next) => {
